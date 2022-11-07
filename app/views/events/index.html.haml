@@ -1,6 +1,12 @@
-%h1 
-  - @events.each do |event| 
-    = link_to event.title, event
+%h1 All events
+
+%h2 
+  - if current_user 
+    - @events.each do |event| 
+      = link_to event.title, event
+  %br
+  = link_to "Create a new event", new_event_path  
+  = link_to "Show Attended events", show_attended_events_path
 
 - if current_user
   = link_to "Sign Out", destroy_user_session_path, method: :delete

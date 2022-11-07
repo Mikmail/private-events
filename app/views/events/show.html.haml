@@ -9,7 +9,10 @@
 %br
   = @event.attandee
 %br 
-  = button_to 'Attend event', attend_event_path(@event), method: :attandee, confirm: "really?"
+  - if current_user && @event.creator != current_user && !@event.attendees.include?(current_user)
+    = link_to "Attend event", create_attending_event_path(:user_id => current_user.id, :id => @event.id), method: :post, class: "button is-info"
+  - else 
+    %strong You have already registered for this event
 %br
 
 = link_to events_path do 

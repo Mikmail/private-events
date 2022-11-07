@@ -1,0 +1,11 @@
+%h1 You have registered for the following events: 
+
+- @attended_events.each do |event|
+  %p  
+    Event name: #{event.title}
+  %p  
+    Event date: #{event.date}
+  %p  
+    Event location: #{event.location}
+  %p  
+    Created by: #{event.creator.email}

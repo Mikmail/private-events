@@ -1,0 +1,7 @@
+%h1 
+  Created events by #{current_user.email}
+  - current_user.created_events.each do |event|
+    Event name: #{event.title}
+    Event date: #{event.date}
+    Event location: #{event.location}
+    Created by: #{event.creator.email}
