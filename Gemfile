@@ -7,6 +7,8 @@ gem 'haml-rails'
 
 gem 'devise'
 
+gem 'devise_invitable'
+
 gem 'bcrypt', '~> 3.1', '>= 3.1.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

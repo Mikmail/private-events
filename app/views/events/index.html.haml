@@ -1,3 +1,9 @@
 %h1 
   - @events.each do |event| 
-    = event.date
+    = link_to event.title, event
+
+- if current_user
+  = link_to "Sign Out", destroy_user_session_path, method: :delete
+- if current_user.nil?
+  = link_to "Sign In", new_user_session_path
+  = link_to  "Sign Up", new_user_registration_path

@@ -1,0 +1,17 @@
+%strong
+  = @event.title 
+%br 
+  = @event.description
+%br 
+  = @event.location
+%br 
+  = @event.date
+%br
+  = @event.attandee
+%br 
+  = button_to 'Attend event', attend_event_path(@event), method: :attandee, confirm: "really?"
+%br
+
+= link_to events_path do 
+  Back
+
