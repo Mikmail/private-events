@@ -1,5 +1,5 @@
 class AttendingEventsController < ApplicationController
-  before_action :set_event, only: [:new, :create]
+  before_action :set_event, only: [:new, :create, :destroy]
 
   def new;end
 
@@ -9,6 +9,10 @@ class AttendingEventsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy 
+    @event.attendees.delete(current_user)
+    redirect_to root_path
+  end
 
   def set_event
     @event = Event.find(params[:id])

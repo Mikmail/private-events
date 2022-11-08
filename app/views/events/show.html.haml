@@ -1,4 +1,4 @@
-.grid.gap-4.text-center.m-2
+.grid.gap-2.text-center.m-2
   %strong
     = @event.title 
   %br 
@@ -12,8 +12,10 @@
   %br 
     - if current_user && @event.creator != current_user && !@event.attendees.include?(current_user)
       = link_to "Attend event", create_attending_event_path(:user_id => current_user.id, :id => @event.id), method: :post
-    - else 
+      
+    - elsif current_user && @event.creator != current_user && @event.attendees.include?(current_user)
       %strong You have already registered for this event
+      = link_to "Leave event", destroy_attending_event_path(:user_id => current_user.id, :id => @event.id), method: :delete, form: {data: { confirm: "Are you sure?"}} 
   %br
     .text-center
       - if current_user && current_user == @event.creator 
@@ -25,11 +27,13 @@
             Delete event
   %h2
     The following users have registered for this event: 
+    .font-bold
+      = @event.creator.email
+    %br 
     - @event.attendees.each do |attendee|
-      .font-bold.m-2
+      .font-bold
         = attendee.email
   %br
 
   = link_to events_path do 
     Back
-
