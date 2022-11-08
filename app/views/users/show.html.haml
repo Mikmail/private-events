@@ -1,6 +1,6 @@
-%h1 
-  Created events by #{current_user.email}
-  %br
+%h1.font-bold.text-2xl.mb-4
+  Created events by: #{current_user.email}
+
 %p  
   - current_user.created_events.each do |event|
     %p  
@@ -16,5 +16,5 @@
   
 %h1 
   = link_to "Create event", new_event_path  
-%h2
+%h2.mt-4
   = link_to "Show Attended events", show_attended_events_path
