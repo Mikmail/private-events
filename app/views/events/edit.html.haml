@@ -1,23 +1,21 @@
 .grid.text-center.gap-4.p-2
   = form_with model: @event do |f|
-    %p.m-2
-      = f.label :title 
-      = f.text_field :title 
-    %p.m-2
-      = f.label :description
-      = f.text_area :description
-    %p.m-2
-      = f.label placeholder: 
-      = f.text_field :location
-    %p.m-2
-      = f.label :date 
+    %p.text-black.m-4
+      = f.text_field :title, placeholder: "Title"
+    %p.text-black.m-4
+      = f.text_area :description, placeholder: "Description"
+    %p.text-black.m-4
+      = f.text_field :location, placeholder: "Location"
+    %p.text-black.m-4
       = f.date_field :date
-    %p.m-2
-      = f.submit "Update event"
 
-  = link_to event_path(@event.id) do
-    .bg-red-500 
-      Cancel 
-  = link_to events_path do
-    .bg-blue-500 
-      All event
+    .bg-blue-500.m-2
+      = f.button :submit 
+
+  .m-4
+    = link_to event_path(@event.id) do
+      .bg-red-500.m-2
+        Cancel 
+    = link_to events_path do
+      .bg-blue-500.m-2
+        All event

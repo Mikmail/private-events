@@ -1,15 +1,16 @@
-= form_with model: @event, remote: false do |f|
+.grid.text-center.gap-4.p-2
+  = form_with model: @event, remote: false do |f|
 
-  = f.label :title 
-  = f.text_field :title 
+    .text-black.m-4
+      = f.text_field :title, placeholder: "Title"
 
-  = f.label :description
-  = f.text_area :description
+    .text-black.m-4
+      = f.text_area :description, placeholder: "Description"
 
-  = f.label :location 
-  = f.text_field :location
+    .text-black.m-4
+      = f.text_field :location, placeholder: "Location"
 
-  = f.label :date 
-  = f.date_field :date
+    .text-black.m-4
+      = f.date_field :date, placeholder: "Date"
 
-  = f.submit "Create event"
+    = f.submit "Create event"
