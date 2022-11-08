@@ -1,15 +1,13 @@
-%h1 All events
+.text-center.grid.gap-6.p-4
+  %h1.text-2xl.font-bold
+    All events
 
-%h2 
-  - if current_user 
-    - @events.each do |event| 
-      = link_to event.title, event
-  %br
-  = link_to "Create a new event", new_event_path  
-  
-
-- if current_user
-  = link_to "Sign Out", destroy_user_session_path, method: :delete
-- if current_user.nil?
-  = link_to "Sign In", new_user_session_path
-  = link_to  "Sign Up", new_user_registration_path
+  %ul
+    - if current_user 
+      - @events.each do |event| 
+        .bg-green-500.rounded-md.m-4
+          = link_to event.title, event
+    %br
+    .bg-blue-600.rounded-md
+      = link_to "Create a new event", new_event_path  
+    
