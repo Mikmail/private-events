@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'events#index'
 
   resources :events
+  resources :invitations
 
   get '/users/:id', to:'users#show', as: "user"
   post '/users/:user_id/events/:id', to: "attending_events#create", as: "create_attending_event"

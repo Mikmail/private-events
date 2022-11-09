@@ -7,7 +7,10 @@
       - @events.each do |event| 
         .bg-green-500.rounded-md.m-4
           = link_to event.title, event
+    - else 
+      %p Sign in to see all active events
     %br
-    .bg-blue-600.rounded-md
-      = link_to "Create a new event", new_event_path  
+    - if current_user
+      .bg-blue-600.rounded-md
+        = link_to "Create a new event", new_event_path  
     

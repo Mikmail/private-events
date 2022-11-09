@@ -1,0 +1,9 @@
+= form_for(@invitation) do |f|
+  
+  = f.label :event_id 
+  = f.collection_select :event_id, Event.all, :id, :title
+
+  = f.label :user_id 
+  = f.collection_select :user_id, User.where.not(id: @invitation.inviter.id), :id, :email
+
+  = f.submit
