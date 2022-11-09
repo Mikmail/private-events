@@ -26,6 +26,9 @@
         = link_to event_path(@event.id), method: :delete, form: {data: { confirm: "Are you sure?"}} do 
           .bg-red-500.rounded-md
             Delete event
+        = link_to new_invitation_path do
+          .bg-green-500.rounded-md.mt-4 
+            Invite a friend
   %h2
     The following users have registered for this event: 
     .font-bold

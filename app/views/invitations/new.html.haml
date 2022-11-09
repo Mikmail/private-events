@@ -1,9 +1,14 @@
-= form_for(@invitation) do |f|
-  
-  = f.label :event_id 
-  = f.collection_select :event_id, Event.all, :id, :title
+- if current_user.nil?
+  %h1 You have already invited this person 
+- else 
+  = form_with model: @invitation do |f|
+    
+    = f.label :event_id 
+    .text-black
+      = f.collection_select :event_id, Event.all, :id, :title
 
-  = f.label :user_id 
-  = f.collection_select :user_id, User.where.not(id: @invitation.inviter.id), :id, :email
+    = f.label :user_id 
+    .text-black
+      = f.collection_select :user_id, User.where.not(id: current_user.id), :id, :email
 
-  = f.submit
+    = f.submit

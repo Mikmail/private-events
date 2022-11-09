@@ -6,12 +6,12 @@ class InvitationsController < ApplicationController
 
   def create 
     @invitation = current_user.invitations.new(invitation_params)
-    @invitation.inviter.id = current_user.id
+    @invitation.inviter = current_user
     
     if @invitation.save
       redirect_to root_path
     else 
-      render :new 
+      redirect_to new_invitation_path
     end 
 
   end 
