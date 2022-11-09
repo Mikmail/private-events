@@ -39,5 +39,10 @@
         = attendee.email
   %br
 
+  %h3 
+    The following users have been invited to this event: 
+    - @event.invitations.each do |invitation| 
+      .font-bold   
+        = invitation.user.email
   = link_to events_path do 
     Back
